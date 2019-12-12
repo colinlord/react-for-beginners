@@ -11,12 +11,11 @@ class App extends React.Component {
     fishes: {},
     order: {}
   };
-
   componentDidMount() {
     const { params } = this.props.match;
-    this.ref = base.syncState(`${params.storeID}/fishes`, {
+    this.ref = base.syncState(`${params.storeId}/fishes`, {
       context: this,
-      state: 'fishes'
+      state: "fishes"
     });
   }
 
@@ -24,32 +23,27 @@ class App extends React.Component {
     base.removeBinding(this.ref);
   }
 
-  addFish = (fish) => {
-    // take a copy of the existing state
-    const fishes = { ...this.state.fishes }
-
-    // add new fish to the fishes variable
+  addFish = fish => {
+    // 1. Take a copy of the existing state
+    const fishes = { ...this.state.fishes };
+    // 2. Add our new fish to that fishes variable
     fishes[`fish${Date.now()}`] = fish;
-
-    // set the new fishes object to state
+    // 3. Set the new fishes object to state
     this.setState({ fishes });
-    console.log("Adding a fish");
   };
 
   loadSampleFishes = () => {
     this.setState({ fishes: sampleFishes });
-  }
+  };
 
-  addToOrder = (key) => {
-    // take a copy of state
+  addToOrder = key => {
+    // 1. take a copy of state
     const order = { ...this.state.order };
-
-    // add to order or update the number
+    // 2. Either add to the order, or update the number in our order
     order[key] = order[key] + 1 || 1;
-
-    // set state to update our state
+    // 3. Call setState to update our state object
     this.setState({ order });
-  }
+  };
 
   render() {
     return (
@@ -68,9 +62,12 @@ class App extends React.Component {
           </ul>
         </div>
         <Order fishes={this.state.fishes} order={this.state.order} />
-        <Inventory addFish={this.addFish} loadSampleFishes={this.loadSampleFishes} />
+        <Inventory
+          addFish={this.addFish}
+          loadSampleFishes={this.loadSampleFishes}
+        />
       </div>
-    )
+    );
   }
 }
 

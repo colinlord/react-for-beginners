@@ -2,8 +2,8 @@ import React from "react";
 
 const NotFound = () => (
   <div>
-    <h1>Not Found</h1>
+    <h2>Not Found!?!!!!1111</h2>
   </div>
-)
+);
 
 export default NotFound;
