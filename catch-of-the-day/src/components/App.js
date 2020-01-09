@@ -15,7 +15,7 @@ class App extends React.Component {
 
   static propTypes = {
     match: PropTypes.object
-  }
+  };
 
   componentDidMount() {
     const { params } = this.props.match;

@@ -13,6 +13,7 @@ class Fish extends React.Component {
     }),
     addToOrder: PropTypes.func
   };
+
   render() {
     const { image, name, price, desc, status } = this.props.details;
     const isAvailable = status === "available";

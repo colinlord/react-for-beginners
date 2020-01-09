@@ -12,7 +12,7 @@ class EditFishForm extends React.Component {
     }),
     index: PropTypes.string,
     update: PropTypes.func
-  }
+  };
 
   handleChange = (event) => {
     console.log(event.currentTarget.name);
